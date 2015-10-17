@@ -4,6 +4,9 @@ var webpack = require('webpack');
 var config = require('./webpack.config.dev');
 
 var app = express();
+app.use(express.static('public'));
+
+
 var compiler = webpack(config);
 
 app.use(require('webpack-dev-middleware')(compiler, {

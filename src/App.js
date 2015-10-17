@@ -1,5 +1,9 @@
+// example boilerplate
+
 import React, { Component } from 'react';
 import { NICE, SUPER_NICE } from './colors';
+
+
 
 class Counter extends Component {
   constructor(props) {
@@ -18,7 +22,7 @@ class Counter extends Component {
     clearInterval(this.interval);
   }
 
-  render() {
+  render() {;
     return (
       <h1 style={{ color: this.props.color }}>
         Counter ({this.props.increment}): {this.state.counter}
