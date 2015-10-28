@@ -4,10 +4,10 @@ import { Provider } from 'react-redux';
 import { Router, Route } from 'react-router';
 // import store from './mainStore';
 import { App } from './connected_components/App.react';
-
+const createBrowserHistory = require('history/lib/createBrowserHistory')
 
 const routes = (
-	<Router>
+	<Router history={createBrowserHistory()}>
 		<Route path='/' component={App} />
 	</Router>
 );
