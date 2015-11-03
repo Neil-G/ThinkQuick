@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { LoginForm } from './LoginForm.react';
 import toastr from 'toastr';
+import { Link } from 'react-router';
 
 toastr.options = {
 	"positionClass": "toast-top-center"
@@ -31,9 +32,9 @@ export class NavBar extends Component {
 	      <div style={{ padding: '0', margin: '5px 0 0 15px', fontSize: '250%', color: '#ECEFF1'  }} >
 	      	{ 
 		      	this.props.firebaseRef.getAuth() == null ?
-			      	 <span >ThinkQuick! <span style={{ fontSize: '50%'}} > Free-for-all race to solve problems in real time! </span></span>  
+			      	 <span><Link to="/" style={{ color: '#ECEFF1' }}>ThinkQuick! </Link><span style={{ fontSize: '50%'}} > Free-for-all race to solve problems in real time! </span></span>  
 			      	 : 
-			      	 "ThinkQuick " + String(this.props.firebaseRef.getAuth().password.email.split('@')[0]) + "!"
+			      	 <span> <Link to="/" style={{ color: '#ECEFF1' }}> ThinkQuick </Link> {String(this.props.firebaseRef.getAuth().password.email.split('@')[0]) + "!"}</span>
 	      	}
 	      </div>
 			    
