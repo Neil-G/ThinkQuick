@@ -22,7 +22,7 @@ export class AboutPage extends Component {
 				<p style={{ background: '#455A64', padding: '20px', color: 'rgba(255,255,255,0.87)', border: '2px solid tomato' }}> Enter a Username and Password to Login... </p> 
 				<p style={{ background: '#37474F', padding: '20px', color: 'rgba(255,255,255,0.87)', border: '2px solid tomato' }}> And if the account doesnt exist, it will be created and signed in automatically </p> 
 				<p style={{ background: '#263238', padding: '20px', color: 'rgba(255,255,255,0.87)', border: '2px solid tomato' }}> Oh, and this is real-time so you're competing against anyone else playing, and you're all seeing the same screen and getting updates as soon as they happen! </p> 
-				<Link to="play"><button style= {{ background: '#33691E', color: "rgba(255,255,255,0.87)", marginBottom: '50px', height: '60px', border: '1px solid gray' }}> Got it? Ok, now go Play! </button> </Link>
+				<Link to="play"><button style= {{ background: '#33691E', color: "rgba(255,255,255,0.87)", margin: '10px auto 50px', height: '60px', border: '1px solid gray' }}> Got it? Ok, now go Play! </button> </Link>
 				<p> FYI: Click on ThinkQuick! in the top left corner of the game screen to see these instructions again </p>
 			</div>
 		);
