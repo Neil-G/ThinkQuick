@@ -14,7 +14,7 @@ var makeGame = function (name) {
 	var a = Math.floor((Math.random() * 10) + 1);
 	var b = Math.floor((Math.random() * 10) + 1);
 	var c = Math.floor((Math.random() * 10) + 1);
-	var d = 2 // Math.floor((Math.random() * 2) + 1);
+	var d = Math.floor((Math.random() * 5) + 1);
 
 	ref.child(name).set({
 			number1: a
@@ -93,7 +93,7 @@ export class GameItem extends Component {
 			.once('value',  dataSnapshot => {
 				if(
 					!(this.props.game.id in dataSnapshot.val()) && // winners.gameId is null
-					this.props.game.answer == this.state.answer			// the correct answer was entered
+					this.props.game.answer == Number(this.state.answer)			// the correct answer was entered
 					// games.gameNumber.id == this.props.game.id so that we are answering for the correct game
 				){ 
 					makeGame(this.props.game.key);

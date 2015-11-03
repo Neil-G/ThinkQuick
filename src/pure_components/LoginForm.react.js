@@ -22,21 +22,21 @@ export class LoginForm extends Component {
   }
 	render() {
 		return(
-			<form style={{ float: 'right', marginTop: '10px', marginRight: '-5px'}}>
-        
+			<form style={{ float: 'right', marginTop: '10px', marginRight: '-10px'}}>
+
           <input 
           	type="text" 
-          	className="form-control" 
+          	 
           	placeholder="username" 
-          	style={{ marginRight: '5px', width: '32%', display: 'inline-block' }} 
+          	style={{ marginRight: '5px', width: '25%', display: 'inline-block' }} 
           	value={this.state.email}
           	onChange={ e => this.setState({ email: e.target.value })} />
 
           <input 
           	type="password" 
-          	className="form-control" 
+          	 
           	placeholder="password" 
-          	style={{ marginRight: '5px', width: '32%', display: 'inline-block' }} 
+          	style={{ marginRight: '5px', width: '25%', display: 'inline-block' }} 
           	value={this.state.password}
           	onChange={ e => this.setState({ password: e.target.value })}/>
         
@@ -44,14 +44,23 @@ export class LoginForm extends Component {
         <button 
         	type="submit" 
         	className="btn btn-default" 
-        	style={{ marginRight: '5px', borderRadius: '0px', background: '#455A64', width: '32%', display: 'inline-block', color: 'white', border: '0' }} 
-        	onClick={this.login}> Sign In | Auto Sign Up </button>
+        	style={{ marginRight: '5px', borderRadius: '0px', background: '#455A64', width: '20%', display: 'inline-block', color: 'white', border: '0' }} 
+        	onClick={this.login}> Log In  </button>
+        <button
+          type="submit" 
+          className="btn btn-default" 
+          style={{ marginRight: '5px', borderRadius: '0px', background: '#455A64', width: '20%', display: 'inline-block', color: 'white', border: '0' }}
+          onClick={this.signUpHint}> Sign up </button>
       </form>
 		);
 	}
 
 	login = e => {
 		e.preventDefault();
+    if (this.state.email == "") {
+      toastr.info("username can't be blank");
+      return
+    }
     this.props.firebaseRef.createUser(
       add_email(this.state),
       (error, userData) => {
@@ -89,18 +98,12 @@ export class LoginForm extends Component {
           );
         }
       }
-
     );
-
-		// this.props.firebaseRef.authWithPassword(this.state, (error, authData) => {
-		//   if (error) {
-		//     toastr.info("Login Failed!", error);
-		//   } else {
-		//     toastr.info("Logged In", authData);
-  //       console.log(authData);
-
-		// //   }
-		// // });
 	}
+
+  signUpHint = e => {
+    e.preventDefault();
+    toastr.info("The Log In Form is also the Sign Up Form. If the username isn't taken it will be automatically created and logged in.");
+  }
 
 }
