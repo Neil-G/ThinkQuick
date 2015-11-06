@@ -19,7 +19,7 @@ export class WinnersList extends Component {
             Recent Leader: {this.props.leader} with {this.props.max} wins
             <h1 style={{ marginTop: '10px'}}>Winners</h1>
           </div>
-          <div style={{ width: '100%', textAlign: 'center', position: 'absolute', top: '85px', bottom: '0px', overflowY: 'scroll'}}>	
+          <div style={{ width: '100%', textAlign: 'center', position: 'absolute', top: '85px', bottom: '10px', overflowY: 'scroll'}}>	
             <table style={{ width: '100%', textAlign: 'center', position: 'absolute', top: '0px', bottom: '0px', overflowY: 'scroll'}} >
           		<tbody >
           		{ this.props.winners.map( (winner, index) => {
@@ -31,10 +31,10 @@ export class WinnersList extends Component {
                   };
           			return(
           				<tr key={winner.timeStamp} style={ style }>
-                    <td style={{ paddingLeft: '10px'}} > {index + 1} </td>
-          					<td style={{textAlign: 'center'}}> {winner.email.split('@')[0] || "no split"} </td>
-                    <td style={{textAlign: 'center'}}> {winner.game} </td>
-                    <td style={{textAlign: 'center'}}> { timeStamp } </td>
+                    <td class="hide-mobile" style={{ paddingLeft: '10px'}} > {index + 1}. </td>
+          					<td style={{textAlign: 'center'}} > {winner.email.split('@')[0] || "no split"} </td>
+                    <td style={{textAlign: 'center'}} className="hide-mobile"> {winner.game} </td>
+                    <td style={{textAlign: 'center'}} className="hide-mobile"> { timeStamp } </td>
           				</tr>
           			);
           		})}

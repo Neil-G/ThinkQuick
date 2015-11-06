@@ -57,7 +57,7 @@ export class App extends Component {
 
   render() {
     return (
-      <div style={{position: 'static'}} >
+      <div style={{position: 'static'}}>
         <NavBar firebaseRef={this.ref} />
         <div style={{ background: '#101010', position: 'absolute', width: '80%', bottom: '0px', top: '66', left: '0px'}}>
          { this.state.games.map( (game, index) => {

@@ -416,3 +416,27 @@ there.
 
 /* Larger than Desktop HD */
 @media (min-width: 1200px) {}
+
+
+/* Smaller than mobile */
+@media (max-width: 400px) {}
+
+/* Smaller than phablet (also point when grid becomes active) */
+@media (max-width: 550px) {}
+
+/* Smaller than tablet */
+@media (max-width: 750px) {
+  
+}
+
+/* Smaller than desktop */
+@media (max-width: 1000px) {
+  .hide-mobile {
+    background: blue;
+    display: none;
+  }
+}
+
+/* Smaller than Desktop HD */
+@media (max-width: 1200px) {}
+
