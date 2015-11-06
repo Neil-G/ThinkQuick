@@ -12,7 +12,7 @@ export class WinnersList extends Component {
         top: '66', 
         right: '0px', 
         textAlign: 'center', 
-        overflowY: 'hidden',
+        // overflowY: 'hidden',
       }}> 
           <div style={{ marginTop: '0', background: '#101010', color: 'tomato', padding: '3%', fontFamily: "Courier", position: 'absolute', width: '100%', height: '85px'}}>
             
