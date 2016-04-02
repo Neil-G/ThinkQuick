@@ -17,10 +17,10 @@ export class WinnersList extends Component {
           <div style={{ marginTop: '0', background: '#101010', color: 'tomato', padding: '3%', fontFamily: "Courier", position: 'absolute', width: '100%', height: '85px'}}>
             
             Recent Leader: {this.props.leader} with {this.props.max} wins
-            <h1 style={{ marginTop: '10px'}}>Winners</h1>
+            <h1 className="hide-mobile" style={{ marginTop: '10px'}}>Winners</h1>
           </div>
           <div style={{ width: '100%', textAlign: 'center', position: 'absolute', top: '85px', bottom: '10px', overflowY: 'scroll'}}>	
-            <table style={{ width: '100%', textAlign: 'center', position: 'absolute', top: '0px', bottom: '0px', overflowY: 'scroll'}} >
+            <table style={{ width: '100%', textAlign: 'center', position: 'absolute', top: '0px', bottom: '0px', overflowY: 'hidden'}} >
           		<tbody >
           		{ this.props.winners.map( (winner, index) => {
                   let timeStamp = new Date(winner.timeStamp);

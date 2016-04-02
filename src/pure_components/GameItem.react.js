@@ -14,7 +14,7 @@ var makeGame = function (name) {
 	var a = Math.floor((Math.random() * 10) + 1);
 	var b = Math.floor((Math.random() * 10) + 1);
 	var c = Math.floor((Math.random() * 10) + 1);
-	var d = Math.floor((Math.random() * 2) + 1);
+	var d = Math.floor((Math.random() * 3) + 1);
 
 	ref.child(name).set({
 			number1: a

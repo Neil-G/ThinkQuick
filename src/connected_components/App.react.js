@@ -63,12 +63,13 @@ export class App extends Component {
          { this.state.games.map( (game, index) => {
           const color = ["#CFD8DC", '#B0BEC5', '#90A4AE', '#78909C', '#607D8B'];
           return <GameItem 
-            key={game.key} 
-            game={game} 
-            firebaseRef={this.ref} 
-            background={color[index]} 
-            color={ index < 3 ? 'black' : 'white' }
-            submitColor={color[index]}/>;
+                    key={game.key} 
+                    game={game} 
+                    firebaseRef={this.ref} 
+                    background={color[index]} 
+                    color={ index < 3 ? 'black' : 'white' }
+                    submitColor={color[index]}/>;
+             
          })}
         </div>
         <WinnersList winners={this.state.winners} leader={this.state.leader} max={this.state.max} />
