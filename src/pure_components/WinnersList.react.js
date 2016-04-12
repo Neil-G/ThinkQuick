@@ -35,9 +35,9 @@ export class WinnersList extends Component {
           			return(
           				<tr key={winner.timeStamp} style={ style }>
                     <td class="hide-mobile" style={{ paddingLeft: '10px'}} className="hide-medium" > {index + 1}. </td>
-          					<td style={{textAlign: 'center'}}> {winner.email.split('@')[0] || "no split"} </td>
-                    <td style={{textAlign: 'center'}}> {winner.game} </td>
-                    <td style={{textAlign: 'center'}} className="hide-large"> { timeStamp } </td>
+          					<td style={{textAlign: 'left'}}> {winner.email.split('@')[0] || "no split"} </td>
+                    <td style={{textAlign: 'center' }}> {winner.game} </td>
+                    <td style={{textAlign: 'right', paddingRight: '6px'}} className="hide-large"> { timeStamp } </td>
           				</tr>
           			);
           		})}
