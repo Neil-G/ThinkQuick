@@ -33,10 +33,10 @@ var makeWinner = function (gameId, gameNumber, color) {
 	ref.child('winners')
 		.child(gameId)
 		.set({
-			email: ref.getAuth() == null ? 'unknown' : ref.getAuth().password.email,
-			color: color,
-			game: gameNumber,
-			timeStamp: firebase.ServerValue.TIMESTAMP
+				email: ref.getAuth() == null ? 'unknown' : ref.getAuth().password.email
+			,	color: color
+			,	game: gameNumber
+			,	timeStamp: firebase.ServerValue.TIMESTAMP
 		});
 }
 
