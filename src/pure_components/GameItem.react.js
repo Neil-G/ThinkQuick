@@ -20,7 +20,7 @@ var makeGame = function (name) {
 			number1: a
 		,	number2: b
 		,	number3: c
-		, operation: d == 1 ? 'ADD' : 'MULTIPLY'
+		, operation: d != 1 ? 'ADD' : 'MULTIPLY'
 		,	answer: d == 1 ? a + b + c : a * b * c
 		,	id: guid.raw()
 		, color: _.sample(colors)
