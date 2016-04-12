@@ -468,7 +468,9 @@ div.game-container {
 }
 
 /* Smaller than Desktop HD */
-@media (max-width: 1200px) {}
+@media (max-width: 1350px) {
+  .hide-large {display: none;}
+}
 
 .example-enter {
   opacity: 0.01;

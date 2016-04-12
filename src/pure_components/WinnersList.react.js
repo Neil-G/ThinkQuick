@@ -37,7 +37,7 @@ export class WinnersList extends Component {
                     <td class="hide-mobile" style={{ paddingLeft: '10px'}} className="hide-medium" > {index + 1}. </td>
           					<td style={{textAlign: 'center'}}> {winner.email.split('@')[0] || "no split"} </td>
                     <td style={{textAlign: 'center'}}> {winner.game} </td>
-                    <td style={{textAlign: 'center'}} className="hide-medium"> { timeStamp } </td>
+                    <td style={{textAlign: 'center'}} className="hide-large"> { timeStamp } </td>
           				</tr>
           			);
           		})}
