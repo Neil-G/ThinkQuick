@@ -22,13 +22,13 @@ export class LoginForm extends Component {
   }
 	render() {
 		return(
-			<form style={{ float: 'right', marginTop: '10px', marginRight: '-5px'}}>
+			<form style={{ position: 'absolute', top: '8px', marginBottom: '0' }} className="float-left-on-small" >
         
           <input 
           	type="text" 
           	className="form-control" 
           	placeholder="username" 
-          	style={{ marginRight: '5px', width: '32%', display: 'inline-block' }} 
+          	style={{ marginRight: '2px', marginLeft: '2px', width: '32%', display: 'inline-block' }} 
           	value={this.state.email}
           	onChange={ e => this.setState({ email: e.target.value })} />
 
@@ -36,7 +36,7 @@ export class LoginForm extends Component {
           	type="password" 
           	className="form-control" 
           	placeholder="password" 
-          	style={{ marginRight: '5px', width: '32%', display: 'inline-block' }} 
+          	style={{ marginRight: '2px', width: '32%', display: 'inline-block' }} 
           	value={this.state.password}
           	onChange={ e => this.setState({ password: e.target.value })}/>
         
@@ -44,7 +44,7 @@ export class LoginForm extends Component {
         <button 
         	type="submit" 
         	className="btn btn-default" 
-        	style={{ marginRight: '5px', borderRadius: '0px', background: '#455A64', width: '32%', display: 'inline-block', color: 'white', border: '0' }} 
+        	style={{ marginRight: '5px', borderRadius: '0px', background: '#455A64', width: '32%', display: 'inline-block', color: 'white', border: '0', fontSize: "0.65em" }} 
         	onClick={this.login}> Sign In | Auto Sign Up </button>
       </form>
 		);

@@ -15,7 +15,7 @@ export class NavBar extends Component {
 	}
 	render(){
 		return(
-			<nav style={{ borderRadius: '0', marginBottom: '0', overflow: 'hidden', background: '#101010', height: '80px', borderBottom: '2px solid tomato'}}>
+			<nav style={{ borderRadius: '0', marginBottom: '0', overflow: 'hidden', background: '#101010', height: '80px', borderBottom: '3px solid tomato', position: 'relative'}}>
       	{ 
       		this.props.firebaseRef.getAuth() === null ? 
 	      		<LoginForm firebaseRef={this.props.firebaseRef} />	
@@ -32,7 +32,11 @@ export class NavBar extends Component {
 	      <div style={{ padding: '0', margin: '5px 0 0 15px', fontSize: '250%', color: '#ECEFF1'  }} >
 	      	{ 
 		      	this.props.firebaseRef.getAuth() == null ?
-			      	 <span><Link to="/" style={{ color: '#ECEFF1' }}>ThinkQuick! </Link><span style={{ fontSize: '50%'}} > Free-for-all race to solve problems in real time! </span></span>  
+			      	<span>
+			      	 	<Link to="/" style={{ color: '#ECEFF1' }} className="hide-small"> ThinkQuick! </Link>
+			      		<span style={{ fontSize: '50%' }} className="hide-medium"> Free-for-all race to solve problems in real time! </span>
+			      		<span style={{ fontSize: "0.4em", position: 'absolute', bottom: '4px', color: 'white' }} className="show-small"> ThinkQuick! Free-for-all race to solve problems in real time! </span>
+			      	</span>  
 			      	 : 
 			      	 <span> <Link to="/" style={{ color: '#ECEFF1' }}> ThinkQuick </Link> {String(this.props.firebaseRef.getAuth().password.email.split('@')[0]) + "!"}</span>
 	      	}

@@ -56,8 +56,7 @@ export class GameItem extends Component {
    
 	render(){
 		return(
-			<div 
-				style={{ background: this.state.flashColor ? this.props.flashColor : this.props.background, color: this.props.color, width: '100%', height: '20%', overflow: 'hidden', transition: 'all 0.5s' }}>
+			<div style={{ background: this.state.flashColor ? this.props.flashColor : this.props.background, color: this.props.color, width: '100%', height: '20%', overflow: 'hidden', transition: 'all 0.5s' }}>
 				<table style={{ width: '100%', height: '100%', margin: 'auto', textAlign: 'center' }}>
 					<thead></thead>
 					<tbody>

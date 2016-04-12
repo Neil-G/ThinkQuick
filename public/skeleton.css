@@ -402,14 +402,36 @@ there.
 */
 
 
+
+/* Custom
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+div.game-container {
+  width: 100%;
+}
+
+.show-small {display: inline;}
+
+.float-left-on-small { right: 0px; }
+
+
 /* Larger than mobile */
-@media (min-width: 400px) {}
+@media (min-width: 400px) {
+  
+}
 
 /* Larger than phablet (also point when grid becomes active) */
-@media (min-width: 550px) {}
+@media (min-width: 550px) {
+
+}
 
 /* Larger than tablet */
-@media (min-width: 750px) {}
+@media (min-width: 750px) {
+  div.game-container {
+    width: 80%;
+  }
+  .show-small {display: none;}
+}
 
 /* Larger than desktop */
 @media (min-width: 1000px) {}
@@ -426,7 +448,10 @@ there.
 
 /* Smaller than tablet */
 @media (max-width: 750px) {
-  
+  .hide-small {
+    display: none;
+  }
+  .float-left-on-small { left: 4px; }
 }
 
 /* Smaller than desktop */
@@ -435,6 +460,11 @@ there.
     background: blue;
     display: none;
   }
+
+  .hide-medium {
+    display: none;
+  }
+  .show-medium { display: inline; }
 }
 
 /* Smaller than Desktop HD */
@@ -457,3 +487,5 @@ there.
   opacity: 0.01;
   transition: opacity 300ms ease-in;
 }
+
+
