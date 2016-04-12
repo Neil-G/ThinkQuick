@@ -35,7 +35,9 @@ export class NavBar extends Component {
 			      	<span>
 			      	 	<Link to="/" style={{ color: '#ECEFF1' }} className="hide-small"> ThinkQuick! </Link>
 			      		<span style={{ fontSize: '50%' }} className="hide-large"> Free-for-all race to solve problems in real time! </span>
-			      		<span style={{ fontSize: "0.3em", position: 'absolute', bottom: '4px', color: 'white' }} className="show-small"> ThinkQuick! Free-for-all race to solve problems in real time! </span>
+			      		<span style={{ fontSize: "0.3em", position: 'absolute', bottom: '4px', color: 'white' }} className="show-small"> 
+			      			<Link to="/" style={{ color: '#ECEFF1' }}> ThinkQuick! Free-for-all race to solve problems in real time! </Link>
+			      		</span>
 			      	</span>  
 			      	 : 
 			      	 <span> <Link to="/" style={{ color: '#ECEFF1' }}> ThinkQuick </Link> {String(this.props.firebaseRef.getAuth().password.email.split('@')[0]) + "!"}</span>
