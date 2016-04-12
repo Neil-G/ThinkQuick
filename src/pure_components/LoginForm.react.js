@@ -44,8 +44,8 @@ export class LoginForm extends Component {
         <button 
         	type="submit" 
         	className="btn btn-default" 
-        	style={{ marginRight: '5px', borderRadius: '0px', background: '#455A64', width: '32%', display: 'inline-block', color: 'white', border: '0', fontSize: "0.65em" }} 
-        	onClick={this.login}> Sign In | Auto Sign Up </button>
+        	style={{ marginRight: '5px', borderRadius: '0px', background: '#455A64', width: '32%', display: 'inline-block', color: 'white', border: '0', fontSize: "0.8em" }} 
+        	onClick={this.login}>  Sign Up | Sign In </button>
       </form>
 		);
 	}
