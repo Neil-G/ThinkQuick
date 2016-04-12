@@ -15,7 +15,7 @@ export class NavBar extends Component {
 	}
 	render(){
 		return(
-			<nav style={{ borderRadius: '0', marginBottom: '0', overflow: 'hidden', background: '#101010', height: '66px', borderBottom: '2px solid tomato'}}>
+			<nav style={{ borderRadius: '0', marginBottom: '0', overflow: 'hidden', background: '#101010', height: '80px', borderBottom: '2px solid tomato'}}>
       	{ 
       		this.props.firebaseRef.getAuth() === null ? 
 	      		<LoginForm firebaseRef={this.props.firebaseRef} />	

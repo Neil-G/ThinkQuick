@@ -43,21 +43,22 @@ var makeWinner = function (gameId, gameNumber, color) {
 export class GameItem extends Component {
 	constructor(props) {
     super(props);
-    this.state = {
-      answer: undefined 
-  	}
+    this.state = { answer: undefined, flashColor: false }
   }
 
   componentWillReceiveProps(nextProps) {
   	if(nextProps.game.id != this.props.game.id) {
-  		this.setState({ answer: undefined });
+  		this.setState({ answer: undefined, flashColor: true });
+	  	setTimeout( () => this.setState({ flashColor: false }) , 500 )
   	}
   }
+
    
 	render(){
 		return(
-			<div style={{ background: this.props.background, color: this.props.color, width: '99%', height: '19%', margin: '0.5% auto 0', overflow: 'hidden', border: '1px solid black' }}>
-				<table style={{ width: '100%', height: '100%' ,margin: 'auto', textAlign: 'center' }}>
+			<div 
+				style={{ background: this.state.flashColor ? this.props.flashColor : this.props.background, color: this.props.color, width: '100%', height: '20%', overflow: 'hidden', transition: 'all 0.5s' }}>
+				<table style={{ width: '100%', height: '100%', margin: 'auto', textAlign: 'center' }}>
 					<thead></thead>
 					<tbody>
 						<tr style={{height: '100%'}}>
@@ -70,7 +71,7 @@ export class GameItem extends Component {
 									style={{ height: '100%', marginBottom: '0', borderLeft: '0px solid black' }}
 									onSubmit={ this.handleSubmit }>
 									<input 
-										style={{ width: '100%', height: '50%', textAlign: 'center', color: 'green', border: '0px solid black'}} 
+										style={{ width: '100%', height: '50%', textAlign: 'center', color: 'green', border: '0px solid black', overflow: "hidden" }} 
 										type="number" 
 										value={this.state.answer || ""}
 										onChange={ e => {
