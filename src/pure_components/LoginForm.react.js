@@ -52,6 +52,12 @@ export class LoginForm extends Component {
 
 	login = e => {
 		e.preventDefault();
+    if ( this.state.email == "" && this.state.password == "") {
+      toastr.info("To sign up, enter a username and password. If the username isn't taken it will sign you up and sign you in automatically.")
+      return
+    }
+
+
     this.props.firebaseRef.createUser(
       add_email(this.state),
       (error, userData) => {
