@@ -93,7 +93,7 @@ export class GameItem extends Component {
 			.once('value',  dataSnapshot => {
 				if(
 					!(this.props.game.id in dataSnapshot.val()) && // winners.gameId is null
-					this.props.game.answer == this.state.answer			// the correct answer was entered
+					this.props.game.answer == Number(this.state.answer)			// the correct answer was entered
 					// games.gameNumber.id == this.props.game.id so that we are answering for the correct game
 				){ 
 					makeGame(this.props.game.key);

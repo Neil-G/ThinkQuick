@@ -23,20 +23,20 @@ export class LoginForm extends Component {
 	render() {
 		return(
 			<form style={{ position: 'absolute', top: '8px', marginBottom: '0' }} className="float-left-on-small" >
-        
           <input 
           	type="text" 
-          	className="form-control" 
           	placeholder="username" 
           	style={{ marginRight: '2px', marginLeft: '2px', width: '32%', display: 'inline-block' }} 
+          	// style={{ marginRight: '5px', width: '25%', display: 'inline-block' }} 
           	value={this.state.email}
           	onChange={ e => this.setState({ email: e.target.value })} />
 
           <input 
           	type="password" 
-          	className="form-control" 
+          	 
           	placeholder="password" 
           	style={{ marginRight: '2px', width: '32%', display: 'inline-block' }} 
+          	// style={{ marginRight: '5px', width: '25%', display: 'inline-block' }} 
           	value={this.state.password}
           	onChange={ e => this.setState({ password: e.target.value })}/>
         
@@ -46,6 +46,7 @@ export class LoginForm extends Component {
         	className="btn btn-default" 
         	style={{ marginRight: '5px', borderRadius: '0px', background: '#455A64', width: '32%', display: 'inline-block', color: 'white', border: '0', fontSize: "0.7em" }} 
         	onClick={this.login}>  Sign Up | Sign In </button>
+
       </form>
 		);
 	}
@@ -53,11 +54,14 @@ export class LoginForm extends Component {
 	login = e => {
 		e.preventDefault();
     if ( this.state.email == "" && this.state.password == "") {
-      toastr.info("To sign up, enter a username and password. If the username isn't taken it will sign you up and sign you in automatically.")
+      toastr.info("To sign up, enter a username and password. If the username isn't taken it will be automatically created and logged in.")
       return
     }
 
-
+    if (this.state.email == "") {
+      toastr.info("username can't be blank");
+      return
+    }
     this.props.firebaseRef.createUser(
       add_email(this.state),
       (error, userData) => {
@@ -95,18 +99,6 @@ export class LoginForm extends Component {
           );
         }
       }
-
     );
-
-		// this.props.firebaseRef.authWithPassword(this.state, (error, authData) => {
-		//   if (error) {
-		//     toastr.info("Login Failed!", error);
-		//   } else {
-		//     toastr.info("Logged In", authData);
-  //       console.log(authData);
-
-		// //   }
-		// // });
 	}
-
 }
