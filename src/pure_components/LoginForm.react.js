@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import toastr from 'toastr';
+import { Link } from 'react-router';
 
 toastr.options = {
   "positionClass": "toast-top-center"
@@ -22,7 +23,9 @@ export class LoginForm extends Component {
   }
 	render() {
 		return(
-      <div style={{  margin: '0', border: '0px solid tomato', boxSizing: 'border-box', height: '100%', padding: '8px', maxWidth: '100%' }} className="float-left-on-small">
+      <div 
+        className='login-box'
+        style={{ margin: '0', boxSizing: 'border-box', height: '100%', display: 'inline-block', maxWidth: '100%' }}>
   			<form>
           <button 
           	type="submit" 
@@ -33,7 +36,7 @@ export class LoginForm extends Component {
             <input 
               type="password"              
               placeholder="password" 
-              style={{ width: '112px', float: 'right', boxSizing: 'border-box', height: '50px', border: '1px solid #CFD8DC', marginRight: '4px' }} 
+              style={{ width: '100px', float: 'right', boxSizing: 'border-box', height: '50px', border: '1px solid #CFD8DC', marginRight: '4px' }} 
               // style={{ marginRight: '5px', width: '25%', display: 'inline-block' }} 
               value={this.state.password}
               onChange={ e => this.setState({ password: e.target.value })}/>
@@ -41,11 +44,14 @@ export class LoginForm extends Component {
             <input 
               type="text" 
               placeholder="username" 
-              style={{ width: '112px', float: 'right', boxSizing: 'border-box', height: '50px', border: '1px solid #CFD8DC', marginRight: '4px' }} 
+              style={{ width: '100px', float: 'right', boxSizing: 'border-box', height: '50px', border: '1px solid #CFD8DC', marginRight: '4px' }} 
               // style={{ marginRight: '5px', width: '25%', display: 'inline-block' }} 
               value={this.state.email}
               onChange={ e => this.setState({ email: e.target.value })} />
         </form>
+        <span style={{ fontSize: "0.7em", position: 'absolute', top: '4px', color: 'white' }} className="show-small"> 
+          <Link to="/" style={{ color: '#EF9A9A' }}> ThinkQuick! Free-for-all race to solve problems in real time! </Link>
+        </span>
       </div>
 		);
 	}
