@@ -58,12 +58,13 @@ export class App extends Component {
   render() {
     return (
       <div style={{position: 'fixed', top: '0', right: '0', bottom: '0', left: '0'}}>
+        
         <NavBar firebaseRef={this.ref} />
 
       {/*  */}
         <div 
           className="game-container"
-          style={{ background: '#101010', position: 'fixed', bottom: '0px', top: '80', left: '0px'}}>
+          style={{ background: 'white', position: 'fixed', bottom: '0px', top: '80', left: '0px', right: '0px', width: '100%' }}>
          { this.state.games.map( (game, index) => {
           const color = ["#CFD8DC", '#B0BEC5', '#90A4AE', '#78909C', '#607D8B'];
           const flashColor = ["#FFAB91", '#FF8A65', '#FF7043', '#FF5722', '#F4511E'];
@@ -78,7 +79,7 @@ export class App extends Component {
              
          })}
         </div>
-        <WinnersList winners={this.state.winners} leader={this.state.leader} max={this.state.max} /> 
+        {/* <WinnersList winners={this.state.winners} leader={this.state.leader} max={this.state.max} /> */}
       </div>
     );
   }

@@ -34,7 +34,6 @@ var makeWinner = function (gameId, gameNumber, color) {
 		.child(gameId)
 		.set({
 				email: ref.getAuth() == null ? 'unknown' : ref.getAuth().password.email
-			,	color: color
 			,	game: gameNumber
 			,	timeStamp: firebase.ServerValue.TIMESTAMP
 		});
@@ -76,7 +75,7 @@ export class GameItem extends Component {
 										onChange={ e => {
 											this.setState({ answer: e.target.value });
 										} }/>
-										<button style={{ width: '100%', height: '50%', background: this.props.submitColor, border: '0', color: this.props.color }}> submit </button>
+										<button style={{ width: '100%', height: '50%', border: '0', color: this.props.color }}> submit </button>
 								</form>
 							</td>
 						</tr>

@@ -451,7 +451,7 @@ div.game-container {
   .hide-small {
     display: none;
   }
-  .float-left-on-small { left: 4px; }
+  .float-left-on-small { left: 0px; }
 }
 
 /* Smaller than desktop */

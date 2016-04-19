@@ -22,32 +22,31 @@ export class LoginForm extends Component {
   }
 	render() {
 		return(
-			<form style={{ position: 'absolute', top: '8px', marginBottom: '0' }} className="float-left-on-small" >
-          <input 
-          	type="text" 
-          	placeholder="username" 
-          	style={{ marginRight: '2px', marginLeft: '2px', width: '32%', display: 'inline-block' }} 
-          	// style={{ marginRight: '5px', width: '25%', display: 'inline-block' }} 
-          	value={this.state.email}
-          	onChange={ e => this.setState({ email: e.target.value })} />
+      <div style={{  margin: '0', border: '0px solid tomato', boxSizing: 'border-box', height: '100%', padding: '8px', maxWidth: '100%' }} className="float-left-on-small">
+  			<form>
+          <button 
+          	type="submit" 
+          	className="btn btn-default" 
+          	style={{ float: 'right', borderRadius: '0', background: '#B9F6CA', height: '50px', border: '1px solid #CFD8DC' }} 
+          	onClick={this.login}>  Sign Up | Sign In </button>
 
-          <input 
-          	type="password" 
-          	 
-          	placeholder="password" 
-          	style={{ marginRight: '2px', width: '32%', display: 'inline-block' }} 
-          	// style={{ marginRight: '5px', width: '25%', display: 'inline-block' }} 
-          	value={this.state.password}
-          	onChange={ e => this.setState({ password: e.target.value })}/>
-        
-
-        <button 
-        	type="submit" 
-        	className="btn btn-default" 
-        	style={{ marginRight: '5px', borderRadius: '0px', background: '#455A64', width: '32%', display: 'inline-block', color: 'white', border: '0', fontSize: "0.7em" }} 
-        	onClick={this.login}>  Sign Up | Sign In </button>
-
-      </form>
+            <input 
+              type="password"              
+              placeholder="password" 
+              style={{ width: '112px', float: 'right', boxSizing: 'border-box', height: '50px', border: '1px solid #CFD8DC', marginRight: '4px' }} 
+              // style={{ marginRight: '5px', width: '25%', display: 'inline-block' }} 
+              value={this.state.password}
+              onChange={ e => this.setState({ password: e.target.value })}/>
+            
+            <input 
+              type="text" 
+              placeholder="username" 
+              style={{ width: '112px', float: 'right', boxSizing: 'border-box', height: '50px', border: '1px solid #CFD8DC', marginRight: '4px' }} 
+              // style={{ marginRight: '5px', width: '25%', display: 'inline-block' }} 
+              value={this.state.email}
+              onChange={ e => this.setState({ email: e.target.value })} />
+        </form>
+      </div>
 		);
 	}
 
