@@ -15,28 +15,12 @@ export class NavBar extends Component {
 		const userIsLoggedIn = this.props.firebaseRef.getAuth() !== null
 		return(
 			<nav style={{ borderRadius: '0', margin: '0', overflow: 'hidden', background: 'white', height: '80px', position: 'fixed', left: '0px', right: '0px', top: '0px', padding: '0', borderBottom: '1px solid tomato', boxSizing: 'border-box' }}>
+      	<span onClick={this.props.toggleWinnersColumnDisplay} style={{ cursor: 'pointer', color: 'gray', fontSize: '80%', position: 'absolute', right: '8px', bottom: '2px' }}>WINNERS</span>
+
       	{  
 
       		// Check if user is logged in
-      		!userIsLoggedIn ? 
-
-      		<div>
-      			{/* SignUp/In Form */} 
-	      		<LoginForm firebaseRef={this.props.firebaseRef} />
-
-		      		{/* Generic title display for players not signed in */}
-	      			<div style={{ border: '0px solid tomato', padding: '8px 0 0 6px', color: '#ECEFF1', height: '100%'  }} >
-			      	 	<Link to="/" style={{ color: '#EF9A9A' }} className="hide-small"> 
-			      	 		<h3 style={{ margin: '0', lineHeight: '0.8'}}>ThinkQuick! 
-			      	 			<br/> 
-			      	 			<span style={{ fontSize: '0.5em' }} > Free-for-all race to solve problems in real time!</span>
-			      	 		</h3> 
-			      	 	</Link>
-			      	</div>
-			      </div>
-	      			
-	      		
-	      		:
+      		userIsLoggedIn ? 
 
       			<div> 
       				{/* Log Out Button */}
@@ -55,6 +39,24 @@ export class NavBar extends Component {
 			      		</Link>
 		      		</div> 
 	      		</div> 
+	      			
+	      		
+	      		:
+
+      		<div>
+      			{/* SignUp/In Form */} 
+	      		<LoginForm firebaseRef={this.props.firebaseRef} />
+
+		      		{/* Generic title display for players not signed in */}
+	      			<div style={{ border: '0px solid tomato', padding: '8px 0 0 6px', color: '#ECEFF1', height: '100%', maxWidth: '300px' }}>
+			      	 	<Link to="/" style={{ color: '#EF9A9A' }} className="hide-small"> 
+			      	 		<h3 style={{ margin: '0', lineHeight: '0.8' }}>ThinkQuick! 
+			      	 			<br/> 
+			      	 			<span style={{ fontSize: '0.5em' }} > Free-for-all race to solve problems in real time!</span>
+			      	 		</h3> 
+			      	 	</Link>
+			      	</div>
+			      </div>
       	}
 			        
 	   

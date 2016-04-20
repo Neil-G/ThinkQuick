@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import moment from 'moment';
 
 export class WinnersList extends Component {
-	render(){
+  render(){
+    const { showWinnersColumn } = this.props
 		return(
 			<div className=""
         style={{ 
@@ -13,9 +14,9 @@ export class WinnersList extends Component {
         width: '40%', 
         bottom: '0px', 
         top: '80', 
-        right: '-000px', 
+        right: showWinnersColumn ? '000px' : '-1000px', 
         textAlign: 'center', 
-        borderLeft: '1px solid #CFD8DC', 
+        borderLeft: '1px solid gray', 
         boxSizing: 'border-box', 
         // overflowY: 'hidden',
       }}> 
@@ -23,6 +24,7 @@ export class WinnersList extends Component {
           <div style={{ height: '100px', marginTop: '0', background: 'white', color: '#EF9A9A', padding: '3%', fontFamily: "Courier", position: 'absolute', width: '100%', background: '#FFEBEE', borderBottom: '1px solid #CFD8DC' }}>
             <p style={{ textAlign: 'center' }}>Recent Leader: {this.props.leader} with {this.props.max} wins</p>
             <h3 style={{ marginTop: '10px'}}>Winners</h3>
+            <span onClick={this.props.toggleWinnersColumnDisplay} style={{ position: 'absolute', top: '2px', right: '4px', color: 'tomato', cursor: 'pointer' }}>X</span>
           </div>
 
           {/* Scrollable Winner's Table */}

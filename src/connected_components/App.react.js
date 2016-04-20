@@ -17,7 +17,11 @@ export class App extends Component {
       , leader: ""
         // amount of wins the leader has
       , max: 0
-    } 
+        // display state of winners column
+      , showWinnersColumn: false
+    }
+
+    this.toggleWinnersColumnDisplay = () => this.setState({ showWinnersColumn: !this.state.showWinnersColumn }) 
   }
 
   componentWillMount() {
@@ -68,11 +72,12 @@ export class App extends Component {
   }  
 
   render() {
+  const { showWinnersColumn } = this.state
     return (
       <div style={{position: 'fixed', top: '0', right: '0', bottom: '0', left: '0'}}>
         
         {/* TOP PANEL for AUTH */}
-        <NavBar firebaseRef={this.ref} />
+        <NavBar firebaseRef={this.ref} toggleWinnersColumnDisplay={this.toggleWinnersColumnDisplay} />
 
         {/* MAIN PANEL for the games */}
         <div 
@@ -95,7 +100,13 @@ export class App extends Component {
         </div>
 
         {/* MAIN PANEL for the games */}
-         <WinnersList winners={this.state.winners} leader={this.state.leader} max={this.state.max} /> 
+        
+        <WinnersList 
+          winners={this.state.winners} 
+          leader={this.state.leader} 
+          max={this.state.max} 
+          toggleWinnersColumnDisplay={this.toggleWinnersColumnDisplay}
+          showWinnersColumn={showWinnersColumn} /> 
       </div>
     );
   }
