@@ -21,9 +21,8 @@ var makeGame = function (name) {
 		,	number2: b
 		,	number3: c
 		, operation: d != 1 ? 'ADD' : 'MULTIPLY'
-		,	answer: d != 1 ? a + b + c : a * b * c
+		,	answer: d != 1 ? (a + b + c) : (a * b * c)
 		,	id: guid.raw()
-		, color: _.sample(colors)
 	});
 }
 
@@ -46,6 +45,8 @@ export class GameItem extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+
+		// makes the box flash when it is being refreshed
   	if(nextProps.game.id != this.props.game.id) {
   		this.setState({ answer: undefined, flashColor: true });
 	  	setTimeout( () => this.setState({ flashColor: false }) , 500 )
@@ -57,17 +58,24 @@ export class GameItem extends Component {
 		return(
 			<div style={{ background: this.state.flashColor ? this.props.flashColor : this.props.background, color: this.props.color, width: '100%', height: '20%', overflow: 'hidden', transition: 'all 0.5s' }}>
 				<table style={{ width: '100%', height: '100%', margin: 'auto', textAlign: 'center' }}>
-					<thead></thead>
 					<tbody>
 						<tr style={{height: '100%'}}>
+							
+							{/* GAME OPERATION */}
 							<td style={{textAlign: 'center', width: '20%'}}> {this.props.game.operation} </td>
+							
+							{/* GAME NUMBERS */}
 							<td style={{textAlign: 'center', width: '20%'}}> {this.props.game.number1} </td>
 							<td style={{textAlign: 'center', width: '20%'}}> {this.props.game.number2} </td>
 							<td style={{textAlign: 'center', width: '20%'}}> {this.props.game.number3} </td>
 							<td style={{textAlign: 'center', width: '20%'}}>
+							
+							{/* GAME SUBMIT FORM */}
 								<form 
 									style={{ height: '100%', marginBottom: '0', borderLeft: '0px solid black' }}
 									onSubmit={ this.handleSubmit }>
+									
+									{/* ANSWER INPUT */}
 									<input 
 										style={{ width: '100%', height: '50%', textAlign: 'center', color: 'green', border: '0px solid black', overflow: "hidden" }} 
 										type="number" 
@@ -75,6 +83,8 @@ export class GameItem extends Component {
 										onChange={ e => {
 											this.setState({ answer: e.target.value });
 										} }/>
+										
+										{/* SUBMIT BUTTON */}
 										<button style={{ width: '100%', height: '50%', border: '0', color: this.props.color }}> submit </button>
 								</form>
 							</td>
@@ -91,13 +101,12 @@ export class GameItem extends Component {
 			.child('winners')
 			.once('value',  dataSnapshot => {
 				if(
-					!(this.props.game.id in dataSnapshot.val()) && // winners.gameId is null
+					!(this.props.game.id in dataSnapshot.val()) && 					// check if game is already won
 					this.props.game.answer == Number(this.state.answer)			// the correct answer was entered
-					// games.gameNumber.id == this.props.game.id so that we are answering for the correct game
 				){ 
-					makeGame(this.props.game.key);
-					makeWinner(this.props.game.id, this.props.game.key, String(this.props.game.color));
-					toastr.success('Got ' + this.props.game.key + '!');
+					makeGame(this.props.game.key);  // make a new game in firebase database
+					makeWinner(this.props.game.id, this.props.game.key, String(this.props.game.color));  // record winner in firebase database
+					toastr.success('Got ' + this.props.game.key + '!');  // alert user that she won
 				}
 			})
 	}

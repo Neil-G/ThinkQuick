@@ -9,15 +9,22 @@ export class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+        // populates the 5 game rows
         games: []
+        // populates winners column
       , winners: []
+        // name of user with most wins (except for unknown)
       , leader: ""
+        // amount of wins the leader has
       , max: 0
     } 
   }
 
   componentWillMount() {
     this.ref = new firebase("https://thinkquick.firebaseio.com");
+
+    // get all games on startup and every time a new game is generated
+    // this fetch needs to be optimized to only fetch the refreshed game
     this.ref.on('value', dataSnapshot => {
       let games = [];
       for (var key in dataSnapshot.val().games) {
@@ -28,7 +35,10 @@ export class App extends Component {
       this.setState({ games: games });
     }.bind(this));
 
-    this.winnersRef = new firebase("https://thinkquick.firebaseio.com/winners");
+
+    // get last 40 winners every time somone wins a game
+    // this fetch needs to be optimized to only get the latest winner
+    this.winnersRef = this.ref.child("winners");
     this.winnersRef.orderByChild('timeStamp').limitToLast(40).on('value', snapshot => {
       let winners = [];
       let winnerEmails = [];
@@ -37,6 +47,8 @@ export class App extends Component {
         winners.push(winner);
         winnerEmails.push(winner.email);
       }
+
+      // calculate who has the most wins and how many wins they have
       winnerEmails = lodash.groupBy(winnerEmails);
       delete winnerEmails.unknown;
       let leader = '';
@@ -48,7 +60,7 @@ export class App extends Component {
         }
       }
       this.setState({ 
-        winners: winners.sort( (a,b) => { return b.timeStamp - a.timeStamp; }),
+        winners: winners.sort( (a,b) => b.timeStamp - a.timeStamp),
         leader: leader,
         max: max
       });
@@ -59,60 +71,32 @@ export class App extends Component {
     return (
       <div style={{position: 'fixed', top: '0', right: '0', bottom: '0', left: '0'}}>
         
+        {/* TOP PANEL for AUTH */}
         <NavBar firebaseRef={this.ref} />
 
-      {/*  */}
+        {/* MAIN PANEL for the games */}
         <div 
           className="game-container"
           style={{ background: 'white', position: 'fixed', bottom: '0px', top: '80', left: '0px', right: '0px', width: '100%' }}>
-         { this.state.games.map( (game, index) => {
-          const color = ["#CFD8DC", '#B0BEC5', '#90A4AE', '#78909C', '#607D8B'];
-          const flashColor = ["#FFAB91", '#FF8A65', '#FF7043', '#FF5722', '#F4511E'];
-          return <GameItem 
-                    key={game.key} 
-                    game={game} 
-                    firebaseRef={this.ref} 
-                    background={color[index]} 
-                    color={ index < 3 ? 'black' : 'white' }
-                    flashColor={ flashColor[index] }
-                    submitColor={color[index]} />;
-             
-         })}
+         { 
+          this.state.games.map( (game, index) => {
+            const color = ["#CFD8DC", '#B0BEC5', '#90A4AE', '#78909C', '#607D8B'];
+            const flashColor = ["#FFAB91", '#FF8A65', '#FF7043', '#FF5722', '#F4511E'];
+            return <GameItem 
+              key={game.key} 
+              game={game} 
+              firebaseRef={this.ref} 
+              background={color[index]} 
+              color={ index < 3 ? 'black' : 'white' }
+              flashColor={ flashColor[index] }
+              submitColor={color[index]} />;
+            })
+          }
         </div>
+
+        {/* MAIN PANEL for the games */}
          <WinnersList winners={this.state.winners} leader={this.state.leader} max={this.state.max} /> 
       </div>
-    );
-  }
-
-  logout = () => {
-    this.firebaseRef.unauth();
-  }
-
-  signUp = e => {
-    e.preventDefault();
-    this.firebaseRef.createUser(
-      this.state,
-      (error, userData) => {
-        if (error) {
-          console.log(error);
-        } else {
-          console.log('sign up successful', userData);
-        }
-      }
-    );
-  }
-
-  signIn = e => {
-    e.preventDefault();
-    this.firebaseRef.authWithPassword(
-      this.state,
-      (error, authData) => {
-        if (error) {
-          console.log(error);
-        } else {
-          console.log('sign in successful', authData);
-        }
-      }
     );
   }
 }

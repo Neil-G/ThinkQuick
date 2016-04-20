@@ -58,20 +58,26 @@ export class LoginForm extends Component {
 
 	login = e => {
 		e.preventDefault();
+
+    // if nothing is entered into username or password
     if ( this.state.email == "" && this.state.password == "") {
       toastr.info("To sign up, enter a username and password. If the username isn't taken it will be automatically created and logged in.")
       return
     }
 
+    // if nothing is entered into username 
     if (this.state.email == "") {
       toastr.info("username can't be blank");
       return
     }
+
+    // attempt to create a new user 
     this.props.firebaseRef.createUser(
       add_email(this.state),
       (error, userData) => {
         if (error) {
           switch (error.code) {
+            // if username exists, attempt to login
             case "EMAIL_TAKEN":
               this.props.firebaseRef.authWithPassword(
                 add_email(this.state), 
@@ -81,7 +87,7 @@ export class LoginForm extends Component {
                     toastr.warning("Login Failed! " + String(error));
                   } else {
                     toastr.success("Logged In As:  " + String(add_email(this.state).email.split('@')[0]));
-                    console.log(authData);
+                    // console.log(authData);
                   }
                 }
               );
@@ -90,6 +96,7 @@ export class LoginForm extends Component {
               break;
           }
         } else {
+            // if username didn't exist before it is now created, so attempt to login
           this.props.firebaseRef.authWithPassword(
             add_email(this.state), 
             (error, authData) => {
@@ -98,7 +105,7 @@ export class LoginForm extends Component {
                 toastr.warning("Login Failed!");
               } else {
                 toastr.success("User Created and Logged In as:  " + String(add_email(this.state).email.split('@')[0]));
-                console.log(authData);
+                // console.log(authData);
               }
             }
           );
