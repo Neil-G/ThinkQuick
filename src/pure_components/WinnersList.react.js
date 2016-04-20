@@ -4,14 +4,16 @@ import moment from 'moment';
 export class WinnersList extends Component {
 	render(){
 		return(
-			<div className="hide-small"
+			<div className=""
         style={{ 
+          transition: 'all 1s',
+          // transform: 'scaleX(600px)',
         background: 'white', 
         position: 'absolute', 
-        width: '20%', 
+        width: '40%', 
         bottom: '0px', 
         top: '80', 
-        right: '0px', 
+        right: '-000px', 
         textAlign: 'center', 
         borderLeft: '1px solid #CFD8DC', 
         boxSizing: 'border-box', 
@@ -36,7 +38,7 @@ export class WinnersList extends Component {
                   };
           			return(
           				<tr key={winner.timeStamp} style={style}>
-                    {/* <td class="hide-mobile" style={{ paddingLeft: '10px'}} className="hide-medium" > {index + 1}. </td> */}
+                    <td class="hide-mobile" style={{ paddingLeft: '10px'}} className="hide-medium" > {index + 1}. </td> 
           					<td style={{textAlign: 'left', paddingLeft: '6px'}}> {winner.email.split('@')[0] || "no split"} </td>
                     <td style={{textAlign: 'center', paddingRight: '4px' }}> {winner.game[4]} </td>
                     <td style={{textAlign: 'right', paddingRight: '6px'}} className="hide-large"> { timeStamp } </td>

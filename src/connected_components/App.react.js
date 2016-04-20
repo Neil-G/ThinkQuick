@@ -79,7 +79,7 @@ export class App extends Component {
              
          })}
         </div>
-        {/* <WinnersList winners={this.state.winners} leader={this.state.leader} max={this.state.max} /> */}
+         <WinnersList winners={this.state.winners} leader={this.state.leader} max={this.state.max} /> 
       </div>
     );
   }
