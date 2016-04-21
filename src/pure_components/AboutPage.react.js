@@ -11,7 +11,9 @@ export class AboutPage extends Component {
 	render(){
 		return(
 			<div className="container" style={{ textAlign: 'center', position: 'relative' }}>
-				<span style={{ width: '40px', height: '40px', background: 'gray', top: '12px', position: 'absolute', borderRadius: '100px', left: '20px' }} />
+				<a href="https://www.github.com/Neil-G/ThinkQuick" target="_blank">
+					<img src="/github_icon_1.jpg" style={{ width: '25px', height: '25px', borderRadius: '100px', top: '20px', position: 'fixed', left: '12px'}} />
+				</a>
 				<Link to="play"><button style= {{ background: '#43A047', color: "rgba(255,255,255,0.87)", margin: '20px auto 20px', height: '60px', border: '1px solid gray' }}> I know how to play already! </button> </Link>
 				<p style={{ background: '#ECEFF1', padding: '20px', border: '1px solid gray'}} > 5 Problems </p> 
 				<p style={{ background: '#CFD8DC', padding: '20px', border: '1px solid gray'}}> Each with 3 Numbers and 1 operation  </p> 

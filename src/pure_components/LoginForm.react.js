@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import toastr from 'toastr';
 import { Link } from 'react-router';
 
@@ -16,42 +16,46 @@ const add_email = state => {
 export class LoginForm extends Component {
 	constructor(props) {
     super(props);
-    this.state = {
-        email: ""
-      , password: ""
-    } 
+    this.state = { email: "", password: "" } 
   }
 	render() {
 		return(
       <div 
         className='login-box'
-        style={{ margin: '0', boxSizing: 'border-box', height: '100%', display: 'inline-block', maxWidth: '100%' }}>
+        style={{ margin: '0', boxSizing: 'border-box', height: '100%', display: 'inline-block', maxWidth: '100%', overflow: 'hidden' }}>
   			<form>
-          <button 
-          	type="submit" 
-          	className="btn btn-default" 
-          	style={{ float: 'right', borderRadius: '0', background: '#B9F6CA', height: '50px', border: '1px solid #CFD8DC' }} 
-          	onClick={this.login}>  Sign Up | Sign In </button>
 
-            <input 
-              type="password"              
-              placeholder="password" 
-              style={{ width: '100px', float: 'right', boxSizing: 'border-box', height: '50px', border: '1px solid #CFD8DC', marginRight: '4px' }} 
-              // style={{ marginRight: '5px', width: '25%', display: 'inline-block' }} 
-              value={this.state.password}
-              onChange={ e => this.setState({ password: e.target.value })}/>
-            
-            <input 
-              type="text" 
-              placeholder="username" 
-              style={{ width: '100px', float: 'right', boxSizing: 'border-box', height: '50px', border: '1px solid #CFD8DC', marginRight: '4px' }} 
-              // style={{ marginRight: '5px', width: '25%', display: 'inline-block' }} 
-              value={this.state.email}
-              onChange={ e => this.setState({ email: e.target.value })} />
+          {/* USERNAME INPUT */}
+          <input 
+            type="text" 
+            placeholder="username" 
+            style={{ width: '100px', boxSizing: 'border-box', height: '50px', border: '1px solid #CFD8DC', marginRight: '4px' }} 
+            // style={{ marginRight: '5px', width: '25%', display: 'inline-block' }} 
+            value={this.state.email}
+            onChange={ e => this.setState({ email: e.target.value })} />
+
+          {/* PASSWORD INPUT */}
+          <input 
+            type="password"              
+            placeholder="password" 
+            style={{ width: '100px', boxSizing: 'border-box', height: '50px', border: '1px solid #CFD8DC', marginRight: '4px' }} 
+            // style={{ marginRight: '5px', width: '25%', display: 'inline-block' }} 
+            value={this.state.password}
+            onChange={ e => this.setState({ password: e.target.value })}/>
+          
+          {/* SUBMIT BUTTON */}
+        <button 
+          type="submit" 
+          className="btn btn-default" 
+          style={{ borderRadius: '0', background: '#B9F6CA', height: '50px', border: '1px solid #CFD8DC', fontSize: 'smaller' }} 
+          onClick={this.login}>  Sign Up | Sign In </button>
         </form>
+
+        {/* TITLE THAT SHOWS ON MOBILE */}
         <span style={{ fontSize: "0.7em", position: 'absolute', top: '4px', color: 'white' }} className="show-small"> 
-          <Link to="/" style={{ color: '#EF9A9A' }}> ThinkQuick! Free-for-all race to solve problems in real time! </Link>
+          <Link to="/" style={{ color: this.props.headerText }}> ThinkQuick! Free-for-all race to solve problems in real time! </Link>
         </span>
+
       </div>
 		);
 	}
@@ -113,4 +117,10 @@ export class LoginForm extends Component {
       }
     );
 	}
+}
+
+
+LoginForm.propTypes = { 
+  firebaseRef: PropTypes.object, 
+  headerText: PropTypes.string 
 }

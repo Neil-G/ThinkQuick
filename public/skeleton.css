@@ -419,6 +419,15 @@ div.game-container {
 .show-border {border: 1px solid tomato; box-sizing: border-box;}
 
 
+.navbar-winner-toggle {
+  cursor: pointer;
+  color: gray; 
+  font-size: 80%; 
+  position: absolute; 
+  right: 8px; 
+  bottom: 2px;
+}
+
 /* Larger than mobile */
 @media (min-width: 400px) {
   
@@ -451,6 +460,7 @@ div.game-container {
 @media (max-width: 550px) {
   .login-box { float: left; padding: 18px 8px 0px;}
   .hide-small {display: none; }
+  .navbar-winner-toggle { top: 2px; }
 }
 
 /* Smaller than tablet */

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import guid from 'guid';
 import firebase from 'firebase';
 import toastr from 'toastr';
@@ -23,6 +23,7 @@ var makeGame = function (name) {
 		, operation: d != 1 ? 'ADD' : 'MULTIPLY'
 		,	answer: d != 1 ? (a + b + c) : (a * b * c)
 		,	id: guid.raw()
+		,	winner: ref.getAuth() == null ? 'unknown' : ref.getAuth().password.email.split('@')[0]
 	});
 }
 
@@ -55,19 +56,23 @@ export class GameItem extends Component {
 
    
 	render(){
+		const { game, flashColor, background, color, firebaseRef } = this.props;
 		return(
-			<div style={{ background: this.state.flashColor ? this.props.flashColor : this.props.background, color: this.props.color, width: '100%', height: '20%', overflow: 'hidden', transition: 'all 0.5s' }}>
+			<div style={{ background: this.state.flashColor ? flashColor : background, color: color, width: '100%', height: '20%', overflow: 'hidden', transition: 'all 0.5s', position: 'relative' }}>
+				
+				{/* GAME WINNER NAME that flashes */}
+				<span style={{ position: 'absolute', top: '2px', left: '6px', color: this.state.flashColor ? color : background }}> {game.winner || 'unknown'} got it! </span>
 				<table style={{ width: '100%', height: '100%', margin: 'auto', textAlign: 'center' }}>
 					<tbody>
 						<tr style={{height: '100%'}}>
 							
 							{/* GAME OPERATION */}
-							<td style={{textAlign: 'center', width: '20%'}}> {this.props.game.operation} </td>
+							<td style={{textAlign: 'center', width: '20%'}}> {game.operation} </td>
 							
 							{/* GAME NUMBERS */}
-							<td style={{textAlign: 'center', width: '20%'}}> {this.props.game.number1} </td>
-							<td style={{textAlign: 'center', width: '20%'}}> {this.props.game.number2} </td>
-							<td style={{textAlign: 'center', width: '20%'}}> {this.props.game.number3} </td>
+							<td style={{textAlign: 'center', width: '20%'}}> {game.number1} </td>
+							<td style={{textAlign: 'center', width: '20%'}}> {game.number2} </td>
+							<td style={{textAlign: 'center', width: '20%'}}> {game.number3} </td>
 							<td style={{textAlign: 'center', width: '20%'}}>
 							
 							{/* GAME SUBMIT FORM */}
@@ -85,7 +90,7 @@ export class GameItem extends Component {
 										} }/>
 										
 										{/* SUBMIT BUTTON */}
-										<button style={{ width: '100%', height: '50%', border: '0', color: this.props.color }}> submit </button>
+										<button style={{ width: '100%', height: '50%', border: '0', color: color }}> submit </button>
 								</form>
 							</td>
 						</tr>
@@ -112,4 +117,20 @@ export class GameItem extends Component {
 	}
 }
 
+
+GameItem.propTypes = {
+		game: PropTypes.shape({
+			  number1: PropTypes.number
+			, number2: PropTypes.number
+			, number3: PropTypes.number
+			, key: PropTypes.string
+			, answer: PropTypes.number
+			, operation: PropTypes.string
+			, winner: PropTypes.string
+		})
+	,	flashColor: PropTypes.string 
+	,	background: PropTypes.string 
+	,	color: PropTypes.string 
+	,	firebaseRef: PropTypes.object
+}
 

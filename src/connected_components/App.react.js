@@ -93,8 +93,7 @@ export class App extends Component {
               firebaseRef={this.ref} 
               background={color[index]} 
               color={ index < 3 ? 'black' : 'white' }
-              flashColor={ flashColor[index] }
-              submitColor={color[index]} />;
+              flashColor={ flashColor[index] } />;
             })
           }
         </div>
