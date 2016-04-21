@@ -20,17 +20,14 @@ export class LoginForm extends Component {
   }
 	render() {
 		return(
-      <div 
-        className='login-box'
-        style={{ margin: '0', boxSizing: 'border-box', height: '100%', display: 'inline-block', maxWidth: '100%', overflow: 'hidden' }}>
+      <div className='login-box'>
   			<form>
 
           {/* USERNAME INPUT */}
           <input 
             type="text" 
             placeholder="username" 
-            style={{ width: '100px', boxSizing: 'border-box', height: '50px', border: '1px solid #CFD8DC', marginRight: '4px' }} 
-            // style={{ marginRight: '5px', width: '25%', display: 'inline-block' }} 
+            className='login' 
             value={this.state.email}
             onChange={ e => this.setState({ email: e.target.value })} />
 
@@ -38,8 +35,7 @@ export class LoginForm extends Component {
           <input 
             type="password"              
             placeholder="password" 
-            style={{ width: '100px', boxSizing: 'border-box', height: '50px', border: '1px solid #CFD8DC', marginRight: '4px' }} 
-            // style={{ marginRight: '5px', width: '25%', display: 'inline-block' }} 
+            className='login' 
             value={this.state.password}
             onChange={ e => this.setState({ password: e.target.value })}/>
           
@@ -52,7 +48,7 @@ export class LoginForm extends Component {
         </form>
 
         {/* TITLE THAT SHOWS ON MOBILE */}
-        <span style={{ fontSize: "0.7em", position: 'absolute', top: '4px', color: 'white' }} className="show-small"> 
+        <span className="show-small auth-submit"> 
           <Link to="/" style={{ color: this.props.headerText }}> ThinkQuick! Free-for-all race to solve problems in real time! </Link>
         </span>
 
