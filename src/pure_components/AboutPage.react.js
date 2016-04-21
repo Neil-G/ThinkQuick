@@ -63,7 +63,7 @@ export class AboutPage extends Component {
 				<p className='instruction-box' style={{ background: '#607D8B', color: 'rgba(255,255,255,0.87)' }}> Solved problems regnerate endlessly </p> 
 				<p className='instruction-box' style={{ background: '#546E7A', color: 'rgba(255,255,255,0.87)' }}> Easy Sign Up and Sign In </p>
 				<p className='instruction-box' style={{ background: '#455A64', color: 'rgba(255,255,255,0.87)' }}> Enter any Username and Password </p> 
-				<p className='instruction-box' style={{ background: '#37474F', color: 'rgba(255,255,255,0.87)' }}> And the rest is taker care of </p> 
+				<p className='instruction-box' style={{ background: '#37474F', color: 'rgba(255,255,255,0.87)' }}> And the rest is taken care of </p> 
 				<p className='instruction-box' style={{ background: '#263238', color: 'rgba(255,255,255,0.87)' }}> Oh and this is REAL-TIME! It's a free for all vs. anyone else on the page! </p> 
 				{/* PLAY BUTTON */}
 				<Link to="play"><button className='play-button' style={{ margin: '10px auto 50px' }}> Got it? Ok, now go Play! </button> </Link>
