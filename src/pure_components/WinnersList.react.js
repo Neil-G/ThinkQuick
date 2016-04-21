@@ -10,7 +10,7 @@ export class WinnersList extends Component {
           <div className='winners-top-panel'>
             <p style={{ textAlign: 'center' }}> Recent Leader: {this.props.leader} with {this.props.max} wins </p>
             <h3 style={{ marginTop: '10px'}}> Winners </h3>
-            <span onClick={this.props.toggleWinnersColumnDisplay} className='close-winners-column'> X </span>
+            <span onClick={this.props.toggleWinnersColumnDisplay} className='close-winners-column' style={{ fontWeight: 'bold'}} > X </span>
           </div>
 
           {/* Scrollable Winner's Table */}

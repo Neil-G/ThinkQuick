@@ -58,13 +58,13 @@ export class AboutPage extends Component {
 				<p className='instruction-box' style={{ background: '#ECEFF1' }}> 5 Problems </p> 
 				<p className='instruction-box' style={{ background: '#CFD8DC' }}> 3 numbers each  </p> 
 				<p className='instruction-box' style={{ background: '#B0BEC5' }}> Addition + or Multiplication x </p> 
-				<p className='instruction-box' style={{ background: '#90A4AE', color: 'rgba(255,255,255,0.87)' }}> Answer any first </p> 
-				<p className='instruction-box' style={{ background: '#78909C', color: 'rgba(255,255,255,0.87)' }}> And get sent to the Winner's Column </p> 
-				<p className='instruction-box' style={{ background: '#607D8B', color: 'rgba(255,255,255,0.87)' }}> Solved problems regnerate endlessly </p> 
+				<p className='instruction-box' style={{ background: '#90A4AE', color: 'rgba(255,255,255,0.87)' }}> Answer first </p> 
+				<p className='instruction-box' style={{ background: '#78909C', color: 'rgba(255,255,255,0.87)' }}> Make the Winner's Column </p> 
+				<p className='instruction-box' style={{ background: '#607D8B', color: 'rgba(255,255,255,0.87)' }}> Solved problems regnerate </p> 
 				<p className='instruction-box' style={{ background: '#546E7A', color: 'rgba(255,255,255,0.87)' }}> Easy Sign Up and Sign In </p>
 				<p className='instruction-box' style={{ background: '#455A64', color: 'rgba(255,255,255,0.87)' }}> Enter any Username and Password </p> 
 				<p className='instruction-box' style={{ background: '#37474F', color: 'rgba(255,255,255,0.87)' }}> And the rest is taken care of </p> 
-				<p className='instruction-box' style={{ background: '#263238', color: 'rgba(255,255,255,0.87)' }}> Oh and this is REAL-TIME! It's a free for all vs. anyone else on the page! </p> 
+				<p className='instruction-box' style={{ background: '#263238', color: 'rgba(255,255,255,0.87)' }}> Oh, and this is REAL-TIME! <br/> It's a free for all vs. anyone else on the page! </p> 
 				{/* PLAY BUTTON */}
 				<Link to="play"><button className='play-button' style={{ margin: '10px auto 50px' }}> Got it? Ok, now go Play! </button> </Link>
 				<p style={{ color: 'tomato' }} > FYI: Click on ThinkQuick! in the top left corner of the game screen to see these instructions again </p>

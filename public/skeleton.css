@@ -571,10 +571,7 @@ table.winners-table {
 
 
 /* Larger than mobile */
-@media (min-width: 400px) {
-
-  
-}
+@media (min-width: 400px) {}
 
 /* Larger than phablet (also point when grid becomes active) */
 @media (min-width: 550px) {
@@ -582,6 +579,11 @@ table.winners-table {
   .navbar-winner-toggle {
     bottom: 2px;
   }
+
+  .color-swap-toggle {
+    left:0px;
+  }
+
   .show-small {display: none;}
 }
 
@@ -603,6 +605,10 @@ table.winners-table {
   .login-box { float: left; padding: 18px 8px 0px;}
   .hide-small {display: none; }
   .navbar-winner-toggle { top: 2px; }
+
+  .color-swap-toggle {
+    right:0px;
+  }
 }
 
 /* Smaller than tablet */
