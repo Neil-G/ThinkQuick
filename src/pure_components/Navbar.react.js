@@ -29,10 +29,6 @@ export class NavBar extends Component {
 		)
 	}
 
-	componentDidMount(){
-		// this.setState({ headerColor: 'white', headerText: salmon })
-		// this.setState({ headerColor: randomcolor({luminosity: 'light'}), headerText: randomcolor({luminosity: 'dark'}) })
-	}
 
 	componentWillMount() { 
 		this.props.firebaseRef.onAuth( authData => this.forceUpdate() )	
