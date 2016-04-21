@@ -514,7 +514,6 @@ nav.nav-header {
   font-size: 80%; 
   position: absolute; 
   right: 8px; 
-  bottom: 2px;
 }
 
 
@@ -570,14 +569,19 @@ table.winners-table {
   overflow-y: hidden;
 }
 
+
 /* Larger than mobile */
 @media (min-width: 400px) {
+
   
 }
 
 /* Larger than phablet (also point when grid becomes active) */
 @media (min-width: 550px) {
 
+  .navbar-winner-toggle {
+    bottom: 2px;
+  }
   .show-small {display: none;}
 }
 

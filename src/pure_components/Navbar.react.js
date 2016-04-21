@@ -66,7 +66,7 @@ export class NavBar extends Component {
 			      	 	<Link to="/" style={{ color: headerText }} className="hide-small"> 
 			      	 		<h3 style={{ margin: '0', lineHeight: '0.8', color: headerText }}>ThinkQuick! 
 			      	 			<br/> 
-			      	 			<span style={{ fontSize: '0.5em', color: headerText }} > Free-for-all race to solve problems in real time!</span>
+			      	 			<span style={{ fontSize: '0.6em', color: headerText }}> Free-for-all race to solve problems in real time!</span>
 			      	 		</h3> 
 			      	 	</Link>
 			      	</div>

@@ -42,13 +42,12 @@ export class LoginForm extends Component {
           {/* SUBMIT BUTTON */}
         <button 
           type="submit" 
-          className="btn btn-default" 
-          style={{ borderRadius: '0', background: '#B9F6CA', height: '50px', border: '1px solid #CFD8DC', fontSize: 'smaller' }} 
+          className="btn btn-default auth-submit" 
           onClick={this.login}>  Sign Up | Sign In </button>
         </form>
 
         {/* TITLE THAT SHOWS ON MOBILE */}
-        <span className="show-small auth-submit"> 
+        <span style={{ fontSize: '0.7em', position: 'absolute', top: '4px', color: 'white' }} className="show-small"> 
           <Link to="/" style={{ color: this.props.headerText }}> ThinkQuick! Free-for-all race to solve problems in real time! </Link>
         </span>
 
