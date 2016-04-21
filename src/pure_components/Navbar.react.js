@@ -8,12 +8,14 @@ toastr.options = {
 	"positionClass": "toast-top-center"
 }
 
+const salmon = '#F06373'
+
 export class NavBar extends Component {
 	constructor(props){
 		super(props)
 		this.state = {
-			headerColor: randomcolor({luminosity: 'light'}),
-			headerText: randomcolor({luminosity: 'dark'})
+			headerColor:'white',
+			headerText: salmon
 		}
 	}
 
