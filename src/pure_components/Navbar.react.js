@@ -24,7 +24,7 @@ export class NavBar extends Component {
 		const { firebaseRef, toggleWinnersColumnDisplay } = this.props
 		const userIsLoggedIn = this.props.firebaseRef.getAuth() !== null
 		return(
-			<nav style={{ borderRadius: '0', margin: '0', overflow: 'hidden', background: headerColor, height: '80px', position: 'fixed', left: '0px', right: '0px', top: '0px', padding: '0', borderBottom: '1px solid tomato', boxSizing: 'border-box' }}>
+			<nav className='nav-header' style={{ background: headerColor }}>
       	
       	{/* TEXT TO TOGGLE WINNDERS TABLE DISPLAY */}
       	<span className="navbar-winner-toggle" onClick={toggleWinnersColumnDisplay}>WINNERS</span>
@@ -37,7 +37,7 @@ export class NavBar extends Component {
       			<div> 
       				{/* Log Out Button */}
 		      		<button 
-		        		style={{ marginRight: '10px', float: 'right', marginTop: '18px', background: 'tomato', color: 'white', border: '0px solid #E57373', fontWeight: 'bold'}}
+		        		className='logout'
 		        		onClick={ () => {
 		        			firebaseRef.unauth();
 		        			toastr.warning('Logged Out!');

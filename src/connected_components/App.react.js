@@ -74,15 +74,13 @@ export class App extends Component {
   render() {
   const { showWinnersColumn } = this.state
     return (
-      <div style={{position: 'fixed', top: '0', right: '0', bottom: '0', left: '0'}}>
+      <div className='full-screen'>
         
         {/* TOP PANEL for AUTH */}
         <NavBar firebaseRef={this.ref} toggleWinnersColumnDisplay={this.toggleWinnersColumnDisplay} />
 
         {/* MAIN PANEL for the games */}
-        <div 
-          className="game-container"
-          style={{ background: 'white', position: 'fixed', bottom: '0px', top: '80', left: '0px', right: '0px', width: '100%' }}>
+        <div className="game-container">
          { 
           this.state.games.map( (game, index) => {
             const color = ["#CFD8DC", '#B0BEC5', '#90A4AE', '#78909C', '#607D8B'];

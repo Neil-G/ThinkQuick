@@ -58,7 +58,7 @@ export class GameItem extends Component {
 	render(){
 		const { game, flashColor, background, color, firebaseRef } = this.props;
 		return(
-			<div style={{ background: this.state.flashColor ? flashColor : background, color: color, width: '100%', height: '20%', overflow: 'hidden', transition: 'all 0.5s', position: 'relative' }}>
+			<div className='game-item-container' style={{ background: this.state.flashColor ? flashColor : background, color: color }}>
 				
 				{/* GAME WINNER NAME that flashes */}
 				<span style={{ position: 'absolute', top: '2px', left: '6px', color: this.state.flashColor ? color : background }}> {game.winner || 'unknown'} got it! </span>
