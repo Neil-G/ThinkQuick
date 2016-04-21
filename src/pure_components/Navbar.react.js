@@ -18,13 +18,25 @@ export class NavBar extends Component {
 			headerText: salmon
 		}
 
+		this.initialColorChange = setTimeout(
+			() => this.setState({ headerColor: randomcolor({luminosity: 'light'}), headerText: randomcolor({luminosity: 'dark'}) }),
+			0
+		)
+
 		this.glowHeader = setInterval(
 			() => this.setState({ headerColor: randomcolor({luminosity: 'light'}), headerText: randomcolor({luminosity: 'dark'}) }),
 			15000
 		)
 	}
 
-	componentWillMount() { this.props.firebaseRef.onAuth( authData => this.forceUpdate() )	}
+	componentDidMount(){
+		// this.setState({ headerColor: 'white', headerText: salmon })
+		// this.setState({ headerColor: randomcolor({luminosity: 'light'}), headerText: randomcolor({luminosity: 'dark'}) })
+	}
+
+	componentWillMount() { 
+		this.props.firebaseRef.onAuth( authData => this.forceUpdate() )	
+	}
 
 	componentWillUnmount() {
 		clearInterval(this.glowHeader)
