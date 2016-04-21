@@ -48,7 +48,7 @@ export class LoginForm extends Component {
 
         {/* TITLE THAT SHOWS ON MOBILE */}
         <span style={{ fontSize: '0.7em', position: 'absolute', top: '4px', color: 'white' }} className="show-small"> 
-          <Link to="/" style={{ transition: '2s all', color: this.props.headerText }}> ThinkQuick! Free-for-all race to solve problems in real time! </Link>
+          <Link to="/" style={{ transition: '15s all', color: this.props.headerText }}> ThinkQuick! Free-for-all race to solve problems in real time! </Link>
         </span>
 
       </div>

@@ -21,8 +21,13 @@ export class App extends Component {
       , showWinnersColumn: false
     }
 
+    this.glowHeader = setInterval(
+      () => this.setState({   })
+    )
+
     this.toggleWinnersColumnDisplay = () => this.setState({ showWinnersColumn: !this.state.showWinnersColumn }) 
   }
+
 
   componentWillMount() {
     this.ref = new firebase("https://thinkquick.firebaseio.com");
